@@ -1,0 +1,39 @@
+{
+  "target": "http://192.168.203.111:3000/",
+  "summary": {
+    "visited_pages": 1,
+    "links": 0,
+    "forms": 0,
+    "parameters": 0,
+    "injection_targets": 0,
+    "vulnerabilities": 0,
+    "technologies_found": 0,
+    "js_files": 0,
+    "api_endpoints": 0,
+    "websockets": 0,
+    "sensitive_paths": 0,
+    "active_scan_results": 0,
+    "api_domains": 1
+  },
+  "api_domains": [
+    "192.168.203.111:3000"
+  ],
+  "visited_pages": [
+    "http://192.168.203.111:3000/"
+  ],
+  "all_links": [],
+  "forms": [],
+  "parameters": [],
+  "parameter_groups": {},
+  "technologies": [],
+  "injection_targets": [],
+  "vulnerabilities": [],
+  "js_analysis": {
+    "apis": [],
+    "sensitive_paths": [],
+    "websockets": []
+  },
+  "network_logs": [],
+  "active_scan_results": [],
+  "pwa_info": {}
+}

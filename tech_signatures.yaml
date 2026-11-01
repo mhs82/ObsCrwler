@@ -1,0 +1,644 @@
+technologies:
+  # ==========================================
+  # CMS & E-Commerce
+  # ==========================================
+  - name: "WordPress"
+    detection_patterns:
+      - "wp-content/"
+      - "wp-includes/"
+      - "wp-json/wp/v2"
+      - "wp-admin"
+    version_patterns:
+      - pattern: "ver=([\\d\\.]+)"
+        description: "Version {version}"
+      - pattern: "WordPress ([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Drupal"
+    detection_patterns:
+      - "Drupal\\.settings"
+      - "sites/default/files"
+      - "core/misc/drupal\\.js"
+    version_patterns:
+      - pattern: "Drupal\\.version\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Joomla"
+    detection_patterns:
+      - "media/system/js/"
+      - "components/com_"
+      - "Joomla\\.initialized"
+    version_patterns:
+      - pattern: "Joomla! ([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Magento"
+    detection_patterns:
+      - "requirejs-config\\.js"
+      - "\\bMagento_"
+      - "mage/storage"
+      - "mage/translate"
+    version_patterns:
+      - pattern: "Magento/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Shopify"
+    detection_patterns:
+      - "cdn\\.shopify\\.com"
+      - "Shopify\\.theme"
+    version_patterns:
+      - pattern: "shopify/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "PrestaShop"
+    detection_patterns:
+      - "prestashop\\.js"
+      - "themes/classic/"
+    version_patterns:
+      - pattern: "PrestaShop ([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Frontend Frameworks
+  # ==========================================
+  - name: "React"
+    detection_patterns:
+      - "react\\.production\\.min\\.js"
+      - "__REACT_DEVTOOLS_GLOBAL_HOOK__"
+      - "React\\.createElement"
+    version_patterns:
+      - pattern: "react[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+      - pattern: "React\\.version\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Next.js"
+    detection_patterns:
+      - "__NEXT_DATA__"
+      - "_next/static/"
+      - "next/router"
+    version_patterns:
+      - pattern: "next[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Vue.js"
+    detection_patterns:
+      - "vue\\.runtime\\.esm\\.js"
+      - "__VUE_OPTIONS_API__"
+      - "Vue\\.version"
+    version_patterns:
+      - pattern: "vue[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+      - pattern: "Vue\\.version\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Nuxt.js"
+    detection_patterns:
+      - "__NUXT__"
+      - "_nuxt/"
+      - "nuxt\\.js"
+    version_patterns:
+      - pattern: "nuxt[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Angular"
+    detection_patterns:
+      - "@angular/core"
+      - "ng-version="
+      - "angular\\.min\\.js"
+    version_patterns:
+      - pattern: "ng-version=\"([\\d\\.]+)\""
+        description: "Version {version}"
+      - pattern: "angular[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Svelte"
+    detection_patterns:
+      - "svelte\\.internal"
+      - "svelte/compiler"
+    version_patterns:
+      - pattern: "svelte[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Gatsby"
+    detection_patterns:
+      - "gatsby\\.js"
+      - "__GATSBY"
+    version_patterns:
+      - pattern: "gatsby[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # JavaScript Libraries (High CVE Risk)
+  # ==========================================
+  - name: "jQuery"
+    detection_patterns:
+      - "jquery\\.min\\.js"
+      - "jquery\\.js"
+      - "jQuery\\.fn\\.jquery"
+    version_patterns:
+      - pattern: "jquery[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+      - pattern: "jQuery\\.fn\\.jquery\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "jQuery UI"
+    detection_patterns:
+      - "jquery-ui\\.min\\.js"
+      - "jquery-ui\\.js"
+    version_patterns:
+      - pattern: "jquery-ui[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Lodash"
+    detection_patterns:
+      - "lodash\\.min\\.js"
+      - "lodash\\.js"
+      - "_\\.VERSION"
+    version_patterns:
+      - pattern: "lodash[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Moment.js"
+    detection_patterns:
+      - "moment\\.min\\.js"
+      - "moment\\.js"
+    version_patterns:
+      - pattern: "moment[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Handlebars"
+    detection_patterns:
+      - "handlebars\\.min\\.js"
+      - "handlebars\\.js"
+      - "Handlebars\\.compile"
+    version_patterns:
+      - pattern: "handlebars[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Axios"
+    detection_patterns:
+      - "axios\\.min\\.js"
+      - "axios\\.js"
+    version_patterns:
+      - pattern: "axios[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "D3.js"
+    detection_patterns:
+      - "d3\\.min\\.js"
+      - "d3\\.js"
+    version_patterns:
+      - pattern: "d3[.-]v?(\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Three.js"
+    detection_patterns:
+      - "three\\.min\\.js"
+      - "three\\.js"
+    version_patterns:
+      - pattern: "three[.-]r?(\\d+)"
+        description: "Version r{version}"
+
+  - name: "Chart.js"
+    detection_patterns:
+      - "Chart\\.min\\.js"
+      - "chart\\.js"
+    version_patterns:
+      - pattern: "Chart\\.version\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Underscore.js"
+    detection_patterns:
+      - "underscore\\.min\\.js"
+      - "underscore\\.js"
+    version_patterns:
+      - pattern: "underscore[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Backbone.js"
+    detection_patterns:
+      - "backbone\\.min\\.js"
+      - "backbone\\.js"
+    version_patterns:
+      - pattern: "Backbone\\.VERSION\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Ember.js"
+    detection_patterns:
+      - "ember\\.min\\.js"
+      - "ember\\.js"
+    version_patterns:
+      - pattern: "Ember\\.VERSION\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  # ==========================================
+  # UI Libraries
+  # ==========================================
+  - name: "Bootstrap"
+    detection_patterns:
+      - "bootstrap\\.min\\.js"
+      - "bootstrap\\.min\\.css"
+      - "bootstrap\\.bundle\\.min\\.js"
+    version_patterns:
+      - pattern: "bootstrap[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Material-UI"
+    detection_patterns:
+      - "@mui/material"
+      - "@material-ui/core"
+    version_patterns:
+      - pattern: "@mui/material/(\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Tailwind CSS"
+    detection_patterns:
+      - "tailwindcss"
+      - "tailwind\\.css"
+    version_patterns:
+      - pattern: "tailwindcss[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Ant Design"
+    detection_patterns:
+      - "antd\\.min\\.js"
+      - "antd\\.js"
+    version_patterns:
+      - pattern: "antd[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Chakra UI"
+    detection_patterns:
+      - "@chakra-ui/react"
+    version_patterns:
+      - pattern: "@chakra-ui/react/(\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Semantic UI"
+    detection_patterns:
+      - "semantic\\.min\\.js"
+      - "semantic\\.js"
+    version_patterns:
+      - pattern: "semantic[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Foundation"
+    detection_patterns:
+      - "foundation\\.min\\.js"
+      - "foundation\\.js"
+    version_patterns:
+      - pattern: "foundation[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Backend Frameworks
+  # ==========================================
+  - name: "Laravel"
+    detection_patterns:
+      - "laravel_session"
+      - "X-XSRF-TOKEN"
+      - "laravel-echo"
+    version_patterns:
+      - pattern: "Laravel v([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Django"
+    detection_patterns:
+      - "csrftoken"
+      - "admin/css/base\\.css"
+      - "django\\.js"
+    version_patterns:
+      - pattern: "Django/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Ruby on Rails"
+    detection_patterns:
+      - "_rails_session"
+      - "authenticity_token"
+      - "turbolinks"
+    version_patterns:
+      - pattern: "Rails ([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Spring Boot"
+    detection_patterns:
+      - "Whitelabel Error Page"
+      - "springfox"
+      - "JSESSIONID"
+    version_patterns:
+      - pattern: "Spring Boot/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "ASP.NET"
+    detection_patterns:
+      - "__VIEWSTATE"
+      - "__RequestVerificationToken"
+      - "WebResource\\.axd"
+    version_patterns:
+      - pattern: "X-AspNet-Version:\\s*([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Express.js"
+    detection_patterns:
+      - "express\\.js"
+      - "connect\\.sid"
+    version_patterns:
+      - pattern: "express[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "FastAPI"
+    detection_patterns:
+      - "fastapi"
+      - "/docs"
+      - "/openapi.json"
+    version_patterns:
+      - pattern: "fastapi[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Flask"
+    detection_patterns:
+      - "flask\\.js"
+      - "Werkzeug"
+    version_patterns:
+      - pattern: "Flask ([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # API & Documentation
+  # ==========================================
+  - name: "Swagger / OpenAPI"
+    detection_patterns:
+      - "swagger-ui\\.js"
+      - "swagger\\.json"
+      - "openapi\\.json"
+      - "/v2/api-docs"
+    version_patterns:
+      - pattern: "Swagger UI v([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "GraphQL"
+    detection_patterns:
+      - "graphql\\.js"
+      - "/graphql"
+      - "__graphql"
+    version_patterns:
+      - pattern: "graphql[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Postman"
+    detection_patterns:
+      - "postman"
+      - "x-postman"
+    version_patterns:
+      - pattern: "Postman/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Web Servers
+  # ==========================================
+  - name: "Nginx"
+    detection_patterns:
+      - "\\bnginx\\b"
+    version_patterns:
+      - pattern: "nginx/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Apache"
+    detection_patterns:
+      - "\\bApache\\b"
+    version_patterns:
+      - pattern: "Apache/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "IIS"
+    detection_patterns:
+      - "Microsoft-IIS"
+      - "X-Powered-By: ASP\\.NET"
+    version_patterns:
+      - pattern: "Microsoft-IIS/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Tomcat"
+    detection_patterns:
+      - "Apache Tomcat"
+      - "tomcat"
+    version_patterns:
+      - pattern: "Apache Tomcat/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # CDN & WAF
+  # ==========================================
+  - name: "Cloudflare"
+    detection_patterns:
+      - "cf-ray"
+      - "__cfduid"
+      - "cloudflare"
+    version_patterns:
+      - pattern: "Cloudflare/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Akamai"
+    detection_patterns:
+      - "akamai"
+      - "x-akamai"
+    version_patterns:
+      - pattern: "Akamai/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "AWS"
+    detection_patterns:
+      - "x-amz-"
+      - "cloudfront\\.net"
+    version_patterns:
+      - pattern: "aws[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Azure"
+    detection_patterns:
+      - "x-ms-"
+      - "azurewebsites"
+    version_patterns:
+      - pattern: "Azure/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Build Tools
+  # ==========================================
+  - name: "Webpack"
+    detection_patterns:
+      - "webpackJsonp"
+      - "__webpack_require__"
+    version_patterns:
+      - pattern: "webpack[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Vite"
+    detection_patterns:
+      - "import\\.meta\\.url"
+      - "vite/client"
+    version_patterns:
+      - pattern: "vite[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Babel"
+    detection_patterns:
+      - "@babel/"
+      - "babel-polyfill"
+    version_patterns:
+      - pattern: "babel[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "Rollup"
+    detection_patterns:
+      - "rollup"
+    version_patterns:
+      - pattern: "rollup[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Analytics
+  # ==========================================
+  - name: "Google Analytics"
+    detection_patterns:
+      - "google-analytics\\.com"
+      - "gtag\\.js"
+      - "googletagmanager"
+    version_patterns:
+      - pattern: "ga\\.js\\?v=([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Matomo"
+    detection_patterns:
+      - "matomo\\.js"
+      - "piwik\\.js"
+    version_patterns:
+      - pattern: "Matomo/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Hotjar"
+    detection_patterns:
+      - "hotjar\\.com"
+    version_patterns:
+      - pattern: "Hotjar/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Security Tools
+  # ==========================================
+  - name: "OWASP ZAP"
+    detection_patterns:
+      - "ZAP"
+      - "owasp"
+    version_patterns:
+      - pattern: "ZAP/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Burp Suite"
+    detection_patterns:
+      - "BurpSuite"
+      - "PortSwigger"
+    version_patterns:
+      - pattern: "Burp Suite/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Database Admin
+  # ==========================================
+  - name: "phpMyAdmin"
+    detection_patterns:
+      - "phpmyadmin"
+      - "pma_"
+    version_patterns:
+      - pattern: "phpMyAdmin ([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "Adminer"
+    detection_patterns:
+      - "adminer"
+    version_patterns:
+      - pattern: "Adminer ([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Monitoring
+  # ==========================================
+  - name: "Sentry"
+    detection_patterns:
+      - "sentry\\.js"
+      - "@sentry"
+    version_patterns:
+      - pattern: "@sentry/browser/(\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "DataDog"
+    detection_patterns:
+      - "datadog"
+      - "dd-rum"
+    version_patterns:
+      - pattern: "DataDog/([\\d\\.]+)"
+        description: "Version {version}"
+
+  - name: "New Relic"
+    detection_patterns:
+      - "newrelic"
+      - "nr-"
+    version_patterns:
+      - pattern: "New Relic/([\\d\\.]+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # PWA & Service Workers
+  # ==========================================
+  - name: "Angular PWA"
+    detection_patterns:
+      - "ngsw\\.json"
+      - "ngsw-worker\\.js"
+      - "@angular/service-worker"
+    version_patterns:
+      - pattern: "\"version\":\\s*\"([\\d\\.]+)\""
+        description: "Version {version}"
+
+  - name: "Workbox"
+    detection_patterns:
+      - "workbox-"
+      - "workbox\\.js"
+    version_patterns:
+      - pattern: "workbox[.-]v?(\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  # ==========================================
+  # Enterprise UI (High CVE Risk)
+  # ==========================================
+  - name: "Telerik"
+    detection_patterns:
+      - "Telerik\\.Web\\.UI"
+      - "kendo\\.all\\.min\\.js"
+    version_patterns:
+      - pattern: "kendo[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "DevExpress"
+    detection_patterns:
+      - "DevExpress"
+      - "dx\\.all\\.js"
+    version_patterns:
+      - pattern: "DevExpress[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"
+
+  - name: "ExtJS"
+    detection_patterns:
+      - "ext-all\\.js"
+      - "Ext\\.versions"
+    version_patterns:
+      - pattern: "Ext\\.versions\\.extjs\\s*=\\s*[\"']([\\d\\.]+)[\"']"
+        description: "Version {version}"
+
+  - name: "Dojo"
+    detection_patterns:
+      - "dojo\\.js"
+      - "dijit"
+    version_patterns:
+      - pattern: "dojo[.-](\\d+\\.\\d+\\.\\d+)"
+        description: "Version {version}"

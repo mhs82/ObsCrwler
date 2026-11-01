@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "forgery-token",
+      "value": "ad2db5d1-b67d-484a-bb5d-f77ad3bc5985",
+      "domain": ".babc.ir",
+      "path": "/"
+    },
+    {
+      "name": "XYV0bGVudLGjYXRqb24BY2MvdW60",
+      "value": "U2FsdGVkX1++gC3/TV9K6MAZoEddDsSPN7j6oyDZWM+eJt+DMLR53WN9M7OaEre+s7ymSrLeAjOauoOE9TzxsYzecijNB6z0aFR0Wx9hm0dwspcpvAwXjtfUzBuo3ifMUcapo6pFCCWSXAQaPzvjDDHdFMwf3mgbaj0ia7h3tIA9hhzFG3hbsOWISkE2A/btDxRjqzP36fV1AjkFNwTFYKbconc+0R1pcQng0bLrzs/LM31Za3X8NXgH+RPQM4HIRHGbp2HVT68PqFq3QmufitRQ7FJpDAunOBn16bFcVru0P0V3W5s6La+PbHcbE/wVr/J5r4ewe5sxc+k0JA9HxAr5jZIDcaz/UCyRva5tcuLrXgqL3TbL6/Wi7XSqUFv3pi+XILatk6hq2BR6a8dw0bMb2boPX/njwyx5+DTk8DO/U2eqH3Yb+mN6Q+VFKsGJGaKl4wZAbk4uKbJG2yTU72+njB78VAdPKgib1EvzHSPFWCA2FGiKH04Zcv7t1zO9kF95xJxIm94CuTWVryfM70kwdanxirQlFYPNmnwsdjO/A65cY6B2rLedYgOOnUZ+9q9WTRDGwWn3U2TW811DLZKNDET5BxQCjr2NVnaDxkYFUDXKNtMpMYJtG8elPKARZ86c2VknEJU027aDNCt9nVlPzTR44qtLhlnfoOHYcDyhqgbAJbBJ8jr/EfyQW+OIjnfFGZkvbix4Q2onsl2qTueflwh4qJfpE9A9c90RzIKNezFPxy/7zncPxyW/D7nRz5/UhOSo/wk4l9cZ1XYgoMvR+wV4wCCcU93tCRpIJJich775686G44SbnRyx466MbhbBqNR4IcUTG2y+fG2IIaL2fjvVvTNLa4lVcYOJ/EqM1JuFu2AyHqtGafW6GspYIRvF252ESWVoSpTqAl2veSfG0MNtybhf3aowkQ0qY7qnOjbPfEOIgNjNk/Fz+bXGmbBjEUTdGF1KRI0FdopE2Y+yJEhXB26IpAiYWu3add4yZ0ZHO8uoq2XnZ+E46de/1z6Zf4NtfeqffkmUtJhq1JOU+tX4UtbC0WtAua94wcWZMRSyp5dc7D+KbI/T7zXcVX12e3lylGUs0R3j76Ji1haU0fjR96Jl7jPkVtJG4+ULBJcaZZIhwO8gxUFCyxecaypshazFGF8rvt3jOYyBvAi9jTfpHvYCJiLNRTyee9UxyTxsBGma7ALNva76E/hAFxnD2GlXeQ9ba1wf0VIiGlP87JLKpVTW6k/dXO/e7aqq9cdBNnORib2xBGDRel7KOvc2fLzdHFpYf4YVADqgYTn9R7ayYodG1B0QzC2Lq95CIvKgYPyZP7+TyPbsZAL4T1+mWIrlRQ8rEbbSLdYH4eEP/JjXV4n44mHif/S2kBAJBXVhXsbfTwzOxNb5ynMuOy7vxc3aqcPZ//WSlCS2A==",
+      "domain": ".babc.ir",
+      "path": "/"
+    }
+  ],
+  "headers": {
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6InBhc3N3b3JkIn0.eyJmdWxsbmFtZSI6ItmF2YbbjNixINi024zYqNin2YbbjCIsImxlZ2FsIjoiRmFsc2UiLCJmaXJzdFRpbWVMb2dpbiI6IkZhbHNlIiwidHdvRmFjdG9yRW5hYmxlZCI6IkZhbHNlIiwic2Vzc2lvbi1pZCI6IjYzOTE2NTEzNDc3NTcxODQ1MyIsInNlc3Npb24tZ2F0ZXdheSI6IjEiLCJuYXRpb25hbC1jb2RlIjoiMjYxMDAxOTQyNCIsImlwIjoiOjoxIiwiZm9yZ2VyeS10b2tlbiI6IjJBLTUxLTA5LUI0LTEwLUVGLTI4LTYzLTY3LURBLURFLTgwLTI1LUMwLTc0LTc5LTk1LUExLTg3LTkzLUU1LTI5LTMwLTYzLTJDLUI3LTY2LTNCLUZBLUYwLTFCLURFIiwidHdvLWZhY3Rvci1lbmFibGVkIjoiRmFsc2UiLCJuYW1laWQiOiJkNDYzNzUzNS1mNmVmLTQ3M2QtODBmMy04MDZlZjllNDk1NzIiLCJyb2xlIjpbImJyYW5jaC1lbXBsb3llZSIsInN1cGVyLWFkbWluIl0sIm5iZiI6MTc4MDkwNDA3NywiZXhwIjoxNzgwOTE0ODc3LCJpYXQiOjE3ODA5MDQwNzcsImlzcyI6IkJvdXJzZUNhcmRzIiwiYXVkIjoiQm91cnNlQ2FyZHMifQ.p7VICGxpiU7tO-3yEVGIkbCJvekI0h9-cXylrvCY6PI",
+    "Client-Id": "BourseCards-InvestorClient",
+    "Session-Gateway": "1",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Origin": "https://bc.babc.ir",
+    "Referer": "https://bc.babc.ir/"
+  }
+}

